@@ -1,0 +1,7 @@
+@use 'variables' as *;
+
+.footer {
+    height: var(--header-footer-height);
+    background-color: var(--header-footer-color);
+    color: var(--header-footer-text-color);
+}

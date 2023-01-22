@@ -1,0 +1,117 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+.contact {
+    @include responsive-body-font-size;
+
+    &__wrapper {
+        @include section-wrapper(true);
+    }
+
+    &__phone {
+        display: block;
+
+        @media (min-width: $breakpoint) {
+            display: none;
+        }
+    }
+
+    &__game {
+        border-radius: $mobile-section-border-radius;
+        margin: 0 0;
+        padding: math.div($container-padding, 2) $container-margin * 2;
+        background-color: var(--element-color);
+        height: fit-content;
+
+        @media (min-width: $breakpoint) {
+            @include sticky-panel($container-padding, false);
+
+            margin: 0 0 0 $container-margin * 2;
+            padding: min(0.9 * $container-padding, $container-margin * 2) $container-margin * 2;
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            margin: 0 0 0 0.9 * $container-padding;
+            padding: 0.9 * $container-padding;
+        }
+    }
+}
+
+.form {
+    &__element {
+        border: none;
+        border-radius: 2em;
+        padding: 1em;
+        margin-bottom: 1em;
+        width: 100%;
+
+        &_input {
+            background-color: var(--element-color);
+            color: var(--text-color);
+        }
+
+        &::placeholder {
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+    }
+
+    &__textarea {
+        resize: none;
+        height: 15em;
+    }
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media (min-width: $breakpoint) {
+        position: fixed;
+        bottom: calc(50% - 8em);
+        left: max(calc((100vw - $container-width) / 2 - 4em), 1em);
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    &__item-wrapper {
+        margin-right: 1em;
+
+        @media (min-width: $breakpoint) {
+            margin-right: 0;
+            margin-bottom: 1em;
+        }
+    }
+}
+
+.message-sent {
+    position: fixed;
+    z-index: 200;
+    top: calc(var(--header-footer-height)/2);
+    left: 50%;
+    border-radius: $mobile-section-border-radius;
+    padding: $container-padding $container-margin * 2;
+    background-color: var(--element-color);
+    height: fit-content;
+    transform: translateX(-50%);
+
+    @include responsive-subheading-font-size;
+
+    &__close {
+        position: absolute;
+        top: math.div($container-padding, 2);
+        right: $container-margin * 3;
+    }
+
+    &__background {
+        position: fixed;
+        z-index: 150;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--body-color);
+        opacity: 0.5;
+    }
+}

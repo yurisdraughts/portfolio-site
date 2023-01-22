@@ -1,0 +1,126 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+.header {
+    @include responsive-header-font-size;
+
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: var(--header-footer-color);
+    font-weight: 600;
+    color: var(--header-footer-text-color);
+
+    &__wrapper {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: space-between;
+
+        @media (min-width: $breakpoint) {
+            flex-direction: row;
+        }
+    }
+
+    &__nav {
+        position: absolute;
+        display: none;
+        top: var(--header-footer-height);
+        left: 0;
+        width: 100%;
+
+        &[data-open="true"] {
+            display: block;
+        }
+
+        @media (min-width: $breakpoint) {
+            position: static;
+            width: initial;
+            flex-grow: 1;
+            display: block;
+        }
+    }
+
+
+    &__link,
+    &__button {
+        height: var(--header-footer-height);
+    }
+
+    &__button {
+        width: var(--header-footer-height);
+    }
+
+    &__link {
+        display: block;
+        padding: calc(var(--header-footer-height)/3);
+        background-color: var(--header-footer-color);
+        color: var(--header-footer-text-color);
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: var(--header-footer-hover-color);
+            color: var(--header-footer-text-hover-color);
+        }
+
+        @media (min-width: $breakpoint) {
+            display: inline-block;
+        }
+    }
+
+    &__nav-list-toggle {
+        display: block;
+
+        @media (min-width: $breakpoint) {
+            display: none;
+        }
+    }
+
+    &__dark-mode-toggle {
+        @media (hover: hover) {
+            & i {
+                transition: rotate .3s;
+                rotate: 0deg;
+            }
+
+            &:hover i,
+            &:active i {
+                rotate: 25.5deg;
+            }
+        }
+    }
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &__item {
+        margin-right: 0;
+        border-top: 1px solid var(--header-footer-text-color);
+
+        &:last-child {
+            border-bottom: 1px solid var(--header-footer-text-color);
+        }
+    }
+
+    @media (min-width: $breakpoint) {
+        flex-direction: row;
+
+        &__item {
+            margin-right: 5%;
+            border-top: none;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+}

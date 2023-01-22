@@ -1,0 +1,13 @@
+@use 'sass:math';
+@use 'modules/variables' as *;
+
+@use 'modules/non-class-selectors';
+@use 'modules/utility-classes';
+
+@use 'modules/header';
+@use 'modules/animation';
+@use 'modules/home';
+@use 'modules/about';
+@use 'modules/contact';
+@use 'modules/footer';
+@use 'modules/game';

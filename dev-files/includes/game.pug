@@ -1,0 +1,14 @@
+.game__board(:class="[showMessage, whoseTurn]")
+    .game__cell(
+        v-for="(square, i) in squares",
+        @click="$data.playersMove(i)"
+        :class="[`game__cell_${i}`, value(square)]",
+    )
+    .game__winning-message-wrapper
+        p.game__winning-message(v-if="winner === 'x'") Вы выиграли!&nbsp;
+            i.fa-solid.fa-face-laugh-beam.fa-1x
+        p.game__winning-message(v-if="winner === 'circle'") Вы проиграли...&nbsp;
+            i.fa-solid.fa-face-sad-tear.fa-1x
+        p.game__winning-message(v-if="winner !== 'x' && winner !== 'circle'") Ничья.&nbsp;
+            i.fa-solid.fa-face-meh-blank.fa-1x
+        button.form__element.button.game__restart(@click="$data.newGame()") Играть снова

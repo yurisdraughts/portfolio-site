@@ -1,0 +1,73 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+.home {
+    position: relative;
+
+    &__wrapper {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        padding-bottom: 0;
+        min-height: 100vh;
+
+        @media (min-width: $breakpoint) {
+            flex-direction: row;
+            padding-bottom: $container-padding;
+        }
+    }
+
+    &__hgroup {
+        z-index: 1;
+        margin-bottom: $container-padding;
+
+        @media (min-width: $breakpoint) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__decoration {
+        justify-content: center;
+        flex-grow: 1;
+        display: flex;
+        position: relative;
+        top: calc((100% + $container-padding - $decoration-height)/2);
+        right: 0;
+        border-top-left-radius: $mobile-section-border-radius;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: $mobile-section-border-radius;
+        border-bottom-right-radius: 0;
+        width: 100% - $container-margin * 2;
+        height: $decoration-height;
+        background-color: var(--element-color);
+
+        @media (min-width: $breakpoint) {
+            flex-grow: initial;
+            position: absolute;
+            border-top-left-radius: math.div($decoration-height, 2);
+            border-bottom-left-radius: math.div($decoration-height, 2);
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            width: 50vw;
+        }
+    }
+}
+
+.home-hgroup {
+    &__item {
+        margin: $text-margin-sm 0;
+        width: fit-content;
+    }
+
+    &__paragraph {
+        @include responsive-subheading-font-size;
+
+        font-weight: 500;
+    }
+
+    &__heading {
+        @include responsive-heading-font-size;
+
+        font-weight: 700;
+    }
+}

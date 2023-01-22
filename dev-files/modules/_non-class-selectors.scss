@@ -1,0 +1,53 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url(../fonts/centurygothic.ttf);
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url(../fonts/centurygothic_bold.ttf);
+    font-weight: bold;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--body-color);
+    font-family: 'Century Gothic', sans-serif;
+    font-style: normal;
+    color: var(--text-color);
+}
+
+:root {
+    font-size: $base-font-size;
+
+    --header-footer-height: #{3 * $subheading-coeff * $mobile-font-size};
+
+    @media (min-width: $breakpoint) {
+        --header-footer-height: #{3 * $subheading-coeff * $desktop-font-size};
+    }
+
+    @include darkColorScheme;
+
+    [data-darkmode="false"] {
+        @include lightColorScheme;
+    }
+}
+
+::selection {
+    background-color: $indigo2;
+    color: $light1;
+}
+
+:focus {
+    outline-color: $amber;
+}

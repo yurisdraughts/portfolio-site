@@ -1,0 +1,15 @@
+section.home
+    .container.container_home.home__wrapper
+        hgroup.home-hgroup.home__hgroup
+            p.home-hgroup__item.home-hgroup__paragraph.
+                Здравствуйте! Меня зовут
+            h1.home-hgroup__item.home-hgroup__heading.
+                #[span.accent Матвеев Юрий,]
+            p.home-hgroup__item.home-hgroup__paragraph.
+                и я начинающий #[span.accent фронтенд-разработчик].
+        .home__decoration
+            #animation
+                - for (let i = 1; i <= 5; i++)
+                    .cube(class=`cube_${i}`)
+                        each side in ['front', 'back', 'right', 'left', 'top', 'bottom']
+                            div(class=`cube__face cube__face_${side}`)

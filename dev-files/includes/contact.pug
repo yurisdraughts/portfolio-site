@@ -1,0 +1,37 @@
+section.contact#contact
+    .container.contact__wrapper
+        .contact__main
+            h2.heading #[span.accent Контакты]
+            include socials
+            form.contact__form.form
+                p.paragraph Вы можете отправить мне сообщение:
+                p.message-sent.message-sent_success.display-none Письмо отправлено!
+                    i.fa-solid.fa-xmark.message-sent__close.accent
+                p.message-sent.message-sent_error.display-none
+                    |Произошла ошибка. Попробуйте отправить письмо ещё раз
+                    |или свяжитесь со мной через контакты в социальных сетях.
+                    i.fa-solid.fa-xmark.message-sent__close.accent
+                .message-sent__background.display-none
+                input.form__element.form__element_input(
+                    type="text", name="name", placeholder="Введите ваше имя", required
+                )
+                input.form__element.form__element_input(
+                    type="email", name="email", placeholder="Введите ваш email", required
+                )
+                input.form__element.form__element_input(
+                    type="text", name="subject", placeholder="Тема сообщения"
+                )
+                textarea.form__element.form__element_input.form__textarea(
+                    name="message", cols="30", rows="10", placeholder="Текст сообщения", required
+                )
+                button.button.form__element(type="submit")
+                    i.fa-solid.fa-envelope.fa-1x
+                    |&nbsp;Отправить
+                p.contact__phone.paragraph ...или позвонить мне:
+                a.contact__phone.button.form__element(href="tel:+79819501440")
+                    i.fa-solid.fa-phone.fa-1x
+                    |&nbsp;Позвонить
+        .contact__game.game#game
+            h3.accent.accent__game-heading.game__heading
+                i.fa-solid.fa-chess-board.fa-2x
+            include game

@@ -1,0 +1,73 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+.about {
+    &__wrapper {
+        @include section-wrapper(false);
+
+        border-radius: $mobile-section-border-radius;
+        background-color: var(--header-footer-color);
+    }
+
+    &__image-container {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: $mobile-section-border-radius;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: $mobile-section-border-radius;
+        margin: 0 $container-margin math.div($container-padding, 2);
+        padding: $container-padding $container-margin math.div($container-padding, 2);
+        height: fit-content;
+        background-color: var(--element-color);
+
+        @media (min-width: $breakpoint) {
+            @include sticky-panel(math.div($container-padding, 2), true);
+
+            border-top-right-radius: $mobile-section-border-radius;
+            border-bottom-right-radius: $mobile-section-border-radius;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            margin: 0;
+            padding: math.div($container-padding, 2) $container-margin;
+        }
+
+        @media (min-width: $breakpoint-lg) {
+            margin: 0;
+            padding: math.div($container-padding, 2);
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+        margin: 0 auto;
+        width: min(90%, 500px);
+    }
+
+    &__image {
+        display: block;
+        width: 100%;
+        border-radius: $mobile-section-border-radius * 0.6;
+
+        &_hover {
+            position: absolute;
+            top: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__text {
+        border-radius: $mobile-section-border-radius;
+        margin: 0 $container-margin;
+        padding: 0 $container-margin * 2;
+        background-color: var(--element-color);
+
+        @media (min-width: $breakpoint-lg) {
+            margin: 0 0.9 * $container-padding;
+            padding: 0 0.9 * $container-padding;
+        }
+    }
+}

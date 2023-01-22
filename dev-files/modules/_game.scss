@@ -1,0 +1,100 @@
+@use 'variables' as *;
+
+.game {
+    color: var(--symbol-color);
+
+    &__heading {
+        display: block;
+        margin: 0 auto .5em;
+        width: fit-content;
+        text-align: center;
+
+        & * {
+            vertical-align: bottom;
+        }
+    }
+
+    &__board {
+        position: relative;
+        display: grid;
+        grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+        aspect-ratio: 1/1;
+        justify-items: center;
+        align-items: center;
+    }
+
+    &__cell {
+        @include x('&_x::before',
+            '&_x::after',
+            var(--symbol-color));
+
+        @include x('.game_x &:not(&_x, &_circle):hover::before',
+            '.game_x &:not(&_x, &_circle):hover::after',
+            var(--ttt-hover-color));
+
+        @include circle('&_circle::before',
+            '&_circle::after'
+        );
+
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        border: 1px solid var(--symbol-color);
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+
+        .game__board_show-message & {
+            opacity: 0.2;
+        }
+
+        &_x,
+        &_circle,
+        .game_circle & {
+            cursor: not-allowed;
+        }
+
+        // уберём внешние границы
+        &_0,
+        &_1,
+        &_2 {
+            border-top: none;
+        }
+
+        &_0,
+        &_3,
+        &_6 {
+            border-left: none;
+        }
+
+        &_2,
+        &_5,
+        &_8 {
+            border-right: none;
+        }
+
+        &_6,
+        &_7,
+        &_8 {
+            border-bottom: none;
+        }
+    }
+
+    &__winning-message-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+
+        .game__board_show-message & {
+            display: flex;
+            z-index: 1;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

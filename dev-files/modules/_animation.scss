@@ -1,0 +1,111 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+$side: math.div($decoration-height, 5);
+$gap: 15px;
+$colors: $rose, $light1, var(--animation-hover), $amber, $green;
+
+@mixin box-shadow($color) {
+    box-shadow: inset #{math.div($side, 20)} #{math.div($side, 20)} #{math.div($side, 5)} #{math.div($side, 10)} $color,
+    inset -#{math.div($side, 20)} -#{math.div($side, 20)} #{math.div($side, 5)} #{math.div($side, 10)} $color;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotateX(360deg) rotateY(360deg*3);
+    }
+}
+
+#animation {
+    top: calc(50% - math.div($decoration-height, 2));
+    left: calc(50% - math.div($decoration-height, 2));
+    position: absolute;
+    perspective: $decoration-height * 10;
+    animation: rotate 30s infinite linear;
+    height: $decoration-height;
+    width: $decoration-height;
+
+    &,
+    & * {
+        transform-style: preserve-3d;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        left: 300px - math.div($decoration-height, 2);
+    }
+}
+
+.cube {
+    position: absolute;
+    width: $side;
+    height: $side;
+
+    &__face {
+        @include box-shadow(var(--animation-default));
+
+        position: absolute;
+        width: $side;
+        height: $side;
+        transition: box-shadow .2s;
+
+        &_front {
+            transform: rotateY(0deg) translateZ(math.div($side, 2));
+        }
+
+        &_right {
+            transform: rotateY(90deg) translateZ(math.div($side, 2));
+        }
+
+        &_back {
+            transform: rotateY(180deg) translateZ(math.div($side, 2));
+        }
+
+        &_left {
+            transform: rotateY(-90deg) translateZ(math.div($side, 2));
+        }
+
+        &_top {
+            transform: rotateX(90deg) translateZ(math.div($side, 2));
+        }
+
+        &_bottom {
+            transform: rotateX(-90deg) translateZ(math.div($side, 2));
+        }
+    }
+
+    @for $i from 1 through 5 {
+        &_#{$i}:hover &__face {
+            @include box-shadow(nth($colors, $i));
+        }
+    }
+
+    &_1 {
+        top: calc(50% - #{math.div($side, 2)});
+        left: calc(50% - #{math.div($side, 2)});
+        transform: rotateX(70deg);
+    }
+
+    &_2 {
+        top: calc(50% - #{$side * 1.5 + $gap * 2});
+        left: calc(50% - #{math.div($side, 2)});
+        transform: rotateY(40deg) scale3d(0.4, 0.8, 1.2);
+    }
+
+    &_3 {
+        top: calc(50% - #{math.div($side, 2)});
+        left: calc(50% - #{$side * 1.5 + $gap});
+        transform: scale3d(0.8, 0.8, 0.8);
+    }
+
+    &_4 {
+        top: calc(50% - #{math.div($side, 2)});
+        left: calc(50% - #{math.div($side, 2) * -1 - $gap});
+        transform: translateZ($side) rotateY(40deg) scale3d(1.2, 1.2, 1.2);
+    }
+
+    &_5 {
+        top: calc(50% - #{math.div($side, 2) * -1 - $gap * 3});
+        left: calc(50% - #{math.div($side, 2)});
+        transform: rotateY(70deg)
+    }
+}

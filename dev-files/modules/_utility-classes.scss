@@ -1,0 +1,180 @@
+@use 'variables' as *;
+@use 'sass:math';
+
+.container {
+    margin: 0 $container-margin;
+    padding: $container-padding 0;
+
+    &_header,
+    &_footer {
+        margin: 0 $container-margin;
+        padding: 0;
+    }
+
+    &_home {
+        padding-top: calc($container-padding + var(--header-footer-height));
+    }
+
+    &_about {
+        padding-top: 0;
+
+        @media (min-width: $breakpoint) {
+            padding-top: $container-padding;
+        }
+    }
+
+    @media (min-width: $breakpoint) {
+        margin: 0 10%;
+
+        &_header,
+        &_footer {
+            margin: 0 10%;
+            padding: 0;
+        }
+    }
+
+    @media (min-width: $breakpoint-lg) {
+        width: $container-width;
+        margin: 0 auto;
+    }
+}
+
+.heading {
+    @include responsive-heading-font-size;
+
+    margin: 0 0 $text-margin-sm 0;
+    text-align: center;
+    font-weight: 700;
+
+    [data-darkmode="false"] & {
+        margin: 2 * $accent-padding 0 $text-margin-sm;
+    }
+
+    &_about {
+        margin-top: $text-margin-sm;
+
+    }
+
+    @media (min-width: $breakpoint) {
+        text-align: left;
+    }
+}
+
+.paragraph {
+    @include responsive-body-font-size;
+
+    font-weight: 500;
+
+    &_about {
+        margin-bottom: 2em;
+    }
+}
+
+.button {
+    display: block;
+    border: none;
+    padding: 0;
+    background-color: $button-color;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1.15;
+    color: $button-text-color;
+
+    &:hover,
+    &:focus,
+    &:active {
+        background-color: $button-hover-color;
+        color: $button-text-hover-color;
+
+    }
+
+    &_header {
+        background-color: var(--header-footer-color);
+        color: var(--header-footer-text-color);
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: var(--header-footer-hover-color);
+            color: var(--header-footer-text-hover-color);
+        }
+    }
+
+    &_socials {
+        background-color: var(--body-color);
+        color: var(--symbol-color);
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: var(--body-color);
+            color: var(--symbol-color);
+        }
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.scale-text {
+    @media (hover: hover) {
+        display: inline-block;
+        transition: scale .15s;
+
+        a:hover &,
+        a:focus &,
+        a:active &,
+        button:hover &,
+        button:focus &,
+        button:active & {
+            scale: 1.05;
+        }
+
+        &_fa {
+
+            a:hover &,
+            a:focus &,
+            a:active &,
+            button:hover &,
+            button:focus &,
+            button:active & {
+                scale: 1.2;
+            }
+        }
+    }
+}
+
+.accent {
+    display: inline-block;
+    background: var(--red);
+    background: -o-linear-gradient(40deg, $green 0%, $rose 50%, $amber 100%);
+    background: linear-gradient(50deg, $green 0%, $rose 50%, $amber 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: bold;
+    color: transparent;
+
+    [data-darkmode="false"] & {
+        border-radius: 0.5em;
+        padding: 0 $accent-padding;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+        color: initial;
+
+        &__game-heading {
+            padding: $accent-padding;
+        }
+
+        &_list-item {
+            padding: math.div($accent-padding, 1.5);
+            border-radius: 40%;
+        }
+    }
+}
+
+.display-none {
+    display: none;
+}

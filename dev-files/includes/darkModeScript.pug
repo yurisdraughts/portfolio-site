@@ -1,0 +1,16 @@
+script.
+    if (localStorage.getItem('darkMode')) {
+        const toggleIcon = document.querySelector('.header__dark-mode-toggle i');
+        const darkMode = localStorage.getItem('darkMode');
+        if (darkMode === 'disabled') {
+            document.body.dataset.darkmode = 'false';
+            localStorage.setItem('darkMode', 'disabled');
+            toggleIcon.classList.remove('fa-sun');
+            toggleIcon.classList.add('fa-moon');
+        } else {
+            document.body.dataset.darkmode = 'true';
+            localStorage.setItem('darkMode', 'enabled');
+            toggleIcon.classList.remove('fa-moon');
+            toggleIcon.classList.add('fa-sun');
+        }
+    }

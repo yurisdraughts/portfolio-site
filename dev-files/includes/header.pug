@@ -1,0 +1,17 @@
+header.header
+    .container.container_header.header__wrapper
+        button.button.button_header.header__button.header__nav-list-toggle
+            i.fa-solid.fa-bars
+        nav.header__nav(data-open="false"): ul.nav-list
+            -
+                const nav = {
+                    '': "Главная",
+                    about: "Обо мне",
+                    contact: "Контакты"
+                }
+            each value, key in nav
+                li.nav-list__item
+                    a.link.header__link(href=`#${key}`)
+                        span.scale-text #{value}
+        button.button.button_header.header__button.header__dark-mode-toggle
+            i.fa-solid.fa-sun

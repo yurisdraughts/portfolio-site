@@ -1,0 +1,15 @@
+.contact__socials.socials
+    -
+        const socials = {
+            github: 'https://github.com/yurisdraughts',
+            codepen: 'https://codepen.io/yurisdraughts/',
+            telegram: 'https://t.me/yumatv93',
+            vk: 'https://vk.com/ymatv',
+        };
+    each value, key in socials
+        .socials__item-wrapper
+            a.button.button_socials.socials__item(
+                class=`socials__${key}`, href=`${value}`,
+                target="_blank"
+            )
+                i.scale-text_fa.fa-brands.fa-2x(class=`fa-${key}`)
