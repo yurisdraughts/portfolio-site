@@ -41,15 +41,14 @@ document.querySelector('.contact__form').addEventListener('submit', function (ev
             });
 
             popup.classList.remove('display-none');
-            background.classList.remove('display-none');
         })
         .catch((error) => {
             console.log('EmailJS Error: ', error);
 
             errorPopup.classList.remove('display-none');
-            background.classList.remove('display-none');
         });
 
+        background.classList.remove('display-none');
 });
 
 document.addEventListener('click', event => {
