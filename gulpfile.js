@@ -3,6 +3,7 @@ const sass = require('gulp-sass')(require('sass'));
 const pug = require('gulp-pug');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
+let imagemin;
 
 const paths = {
     styles: {
@@ -14,6 +15,11 @@ const paths = {
         src: './dev-files/index.pug',
         dest: './',
         watch: './**/*.pug'
+    },
+    images: {
+        src: './dev-files/images/*',
+        dest: './assets/images',
+        watch: './assets/images/*'
     }
 };
 
@@ -31,6 +37,13 @@ function buildHtml() {
         .pipe(gulp.dest(paths.pug.dest));
 }
 
+async function processImages() {
+    ({ default: imagemin } = await import('gulp-imagemin'));
+    gulp.src(paths.images.src)
+        .pipe(imagemin())
+        .pipe(gulp.dest(paths.images.dest));
+}
+
 function watch() {
     browserSync.init({
         server: {
@@ -40,8 +53,12 @@ function watch() {
 
     gulp.watch(paths.styles.watch).on('change', browserSync.reload);
     gulp.watch(paths.pug.watch).on('change', browserSync.reload);
+    gulp.watch(paths.images.watch).on('change', browserSync.reload);
+
     gulp.watch(paths.styles.watch, buildStyles);
     gulp.watch(paths.pug.watch, buildHtml);
+
+    gulp.watch(paths.images.src, processImages);
 }
 
-exports.default = gulp.series(buildHtml, buildStyles, watch);
+exports.default = gulp.series(processImages, buildHtml, buildStyles, watch);

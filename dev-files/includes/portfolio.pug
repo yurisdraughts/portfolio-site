@@ -1,0 +1,35 @@
+section.portfolio#portfolio
+    .container.container_portfolio
+        h2.heading.heading_portfolio #[span.accent Портфолио]
+        .portfolio__pages-wrapper
+            -
+                const a = (href) => `(<a class="link link_underline"
+                    href="${href}"
+                    target="_blank">ссылка</a>)`;
+                const p = (text) => `<div class="portfolio-page__paragraph
+                    paragraph paragraph_portfolio">${text}</div>`;
+                const pages = [
+                    //- { src: '', alt: '', text: `` },
+                    //- { src: '', alt: '', text: `` },
+                    {
+                        src: './assets/images/contact_manager.png',
+                        alt: 'Менеджер контактов',
+                        text: p(`Менеджер контактов
+                        ${a("https://yurisdraughts.github.io/contact-manager/")}
+                        и его исходный код
+                        ${a("https://github.com/yurisdraughts/contact-manager")}.`)
+                        + p(`Использовались: Sass и Vue.`)
+                    },
+                    {
+                        src: './assets/images/portfolio.png',
+                        alt: 'Сайт-портфолио',
+                        text: p(`Исходный код сайта-портфолио,
+                        на котором вы сейчас находитесь 
+                        ${a("https://github.com/yurisdraughts/portfolio-site")}.`)
+                        + p(`Использовались: Pug, Sass и Vue для игры в крестики-нолики.`)
+                    }
+                ];
+            each page in pages
+                .portfolio__page.portfolio-page
+                    img(src=page.src, alt=page.alt, width="300px").portfolio-page__image
+                    | !{page.text}

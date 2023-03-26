@@ -23,6 +23,10 @@
         }
     }
 
+    &_portfolio {
+        padding: 0;
+    }
+
     @media (min-width: $breakpoint) {
         margin: 0 10%;
 
@@ -52,7 +56,10 @@
 
     &_about {
         margin-top: $text-margin-sm;
+    }
 
+    &_portfolio {
+        margin: 1.5em 0 .5em;
     }
 
     @media (min-width: $breakpoint) {
@@ -66,7 +73,11 @@
     font-weight: 500;
 
     &_about {
-        margin-bottom: 2em;
+        margin-bottom: 1.5em;
+    }
+    
+    &_portfolio {
+        margin-bottom: 1em;
     }
 }
 
@@ -117,6 +128,10 @@
 .link {
     text-decoration: none;
     color: inherit;
+
+    &_underline {
+        text-decoration: underline;
+    }
 }
 
 .scale-text {

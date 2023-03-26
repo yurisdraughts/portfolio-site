@@ -20,7 +20,7 @@
         align-items: center;
         justify-content: space-between;
 
-        @media (min-width: $breakpoint) {
+        @media (min-width: $breakpoint-lg) {
             flex-direction: row;
         }
     }
@@ -36,7 +36,7 @@
             display: block;
         }
 
-        @media (min-width: $breakpoint) {
+        @media (min-width: $breakpoint-lg) {
             position: static;
             width: initial;
             flex-grow: 1;
@@ -67,7 +67,7 @@
             color: var(--header-footer-text-hover-color);
         }
 
-        @media (min-width: $breakpoint) {
+        @media (min-width: $breakpoint-lg) {
             display: inline-block;
         }
     }
@@ -75,7 +75,7 @@
     &__nav-list-toggle {
         display: block;
 
-        @media (min-width: $breakpoint) {
+        @media (min-width: $breakpoint-lg) {
             display: none;
         }
     }
@@ -111,7 +111,7 @@
         }
     }
 
-    @media (min-width: $breakpoint) {
+    @media (min-width: $breakpoint-lg) {
         flex-direction: row;
 
         &__item {
