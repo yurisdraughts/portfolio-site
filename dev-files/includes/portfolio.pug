@@ -1,32 +1,79 @@
 section.portfolio#portfolio
-    .container.container_portfolio
+    .container
         h2.heading.heading_portfolio #[span.accent Портфолио]
         .portfolio__pages-wrapper
             -
-                const a = (href) => `(<a class="link link_underline"
+                const a = (href, text) => `<a class="link link_underline"
                     href="${href}"
-                    target="_blank">ссылка</a>)`;
+                    target="_blank">${text}</a>`;
                 const p = (text) => `<div class="portfolio-page__paragraph
                     paragraph paragraph_portfolio">${text}</div>`;
                 const pages = [
-                    //- { src: '', alt: '', text: `` },
-                    //- { src: '', alt: '', text: `` },
+                    {
+                        src: './assets/images/mealdb.png',
+                        alt: 'Приложение с рецептами',
+                        text: p(`${a(
+                            'https://timely-sunshine-f3f0f4.netlify.app/',
+                            'Приложение с рецептами'
+                        )} на основе API сайта ${a(
+                            'https://www.themealdb.com/',
+                            'TheMealDB'
+                        )} и его ${a(
+                            'https://github.com/yurisdraughts/mealdb-react-app',
+                            'исходный код'
+                        )}.`)
+                        + p(`Использовались: React, Vite, React Router, Sass и Netlify.`)
+                    },
+                    {
+                        src: './assets/images/arcanes.png',
+                        alt: '"Нулевые" блоки на Тильде',
+                        text: p(`"Нулевые" блоки для сайта на Тильде.
+                        Страницы с блоками не находятся в открытом доступе,
+                        тем не менее два из них можно увидеть на CodePen-е по ссылкам:
+                        ${a(
+                            "https://codepen.io/yurisdraughts/pen/KKxKdEp",
+                            '"Психологический портрет"'
+                        )} и ${a(
+                            "https://codepen.io/yurisdraughts/pen/zYJoGPY",
+                            '"Матрица души"'
+                        )}.`)
+                        + p(`Использовались: Sass и Gulp.`)
+                    },
                     {
                         src: './assets/images/contact_manager.png',
                         alt: 'Менеджер контактов',
-                        text: p(`Менеджер контактов
-                        ${a("https://yurisdraughts.github.io/contact-manager/")}
-                        и его исходный код
-                        ${a("https://github.com/yurisdraughts/contact-manager")}.`)
+                        text: p(`${a(
+                            "https://yurisdraughts.github.io/contact-manager/",
+                            '"Менеджер контактов"'
+                        )} и его ${a(
+                            "https://github.com/yurisdraughts/contact-manager",
+                            "исходный код"
+                        )}.`)
                         + p(`Использовались: Sass и Vue.`)
                     },
                     {
                         src: './assets/images/portfolio.png',
                         alt: 'Сайт-портфолио',
-                        text: p(`Исходный код сайта-портфолио,
-                        на котором вы сейчас находитесь 
-                        ${a("https://github.com/yurisdraughts/portfolio-site")}.`)
-                        + p(`Использовались: Pug, Sass и Vue для игры в крестики-нолики.`)
+                        text: p(`${a(
+                        "https://github.com/yurisdraughts/portfolio-site",
+                        "Исходный код сайта-портфолио"
+                        )}, на котором вы сейчас находитесь.`)
+                        + p(`Использовались: Pug и Sass, а также Vue для игры в крестики-нолики;
+                         позднее был добавлен Gulp.`)
+                    },
+                    {
+                        src: './assets/images/worldskills.png',
+                        alt: 'Сайт, сделанный на курсе "Разработка веб-приложений"',
+                        text: p(`${a(
+                            "http://yurisdraug.temp.swtest.ru/",
+                            "Сайт"
+                        )}, сделанный на курсе "Разработка веб-приложений"
+                        и его ${a(
+                            "https://github.com/yurisdraughts/worldskills-final-project",
+                            "исходный код"
+                        )}.`)
+                        + p(`Использовались: jQuery, а также PHP, MySQL и OpenServer
+                         для создания несложного бэкенда.`)
                     }
                 ];
             each page in pages

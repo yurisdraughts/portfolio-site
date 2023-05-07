@@ -24,7 +24,7 @@
     }
 
     &_portfolio {
-        padding: 0;
+        padding-bottom: 0;
     }
 
     @media (min-width: $breakpoint) {
@@ -46,20 +46,13 @@
 .heading {
     @include responsive-heading-font-size;
 
-    margin: 0 0 $text-margin-sm 0;
     text-align: center;
     font-weight: 700;
 
-    [data-darkmode="false"] & {
-        margin: 2 * $accent-padding 0 $text-margin-sm;
-    }
+    margin: 2 * $accent-padding 0 $text-margin-sm;
 
     &_about {
         margin-top: $text-margin-sm;
-    }
-
-    &_portfolio {
-        margin: 1.5em 0 .5em;
     }
 
     @media (min-width: $breakpoint) {
@@ -75,7 +68,7 @@
     &_about {
         margin-bottom: 1.5em;
     }
-    
+
     &_portfolio {
         margin-bottom: 1em;
     }

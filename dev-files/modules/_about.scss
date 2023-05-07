@@ -2,6 +2,12 @@
 @use 'variables' as *;
 
 .about {
+    padding-top: 0;
+
+    @media (min-width: $breakpoint) {
+        padding-top: $container-padding;
+    }
+
     &__wrapper {
         @include section-wrapper(false);
 
@@ -51,7 +57,7 @@
             position: absolute;
             top: 0;
             opacity: 0;
-            transition: opacity 0.3s;
+            transition: opacity 0.7s;
 
             &:hover {
                 opacity: 1;
