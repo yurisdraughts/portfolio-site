@@ -69,6 +69,14 @@
         margin-bottom: 1.5em;
     }
 
+    &_list {
+        padding-inline-start: 1.5em;
+    }
+    
+    &_list-item {
+        padding-inline-start: 0.5em;
+    }
+    
     &_portfolio {
         margin-bottom: 1em;
     }
@@ -157,7 +165,7 @@
 
 .accent {
     display: inline-block;
-    background: var(--red);
+    background: $rose;
     background: -o-linear-gradient(40deg, $green 0%, $rose 50%, $amber 100%);
     background: linear-gradient(50deg, $green 0%, $rose 50%, $amber 100%);
     -webkit-background-clip: text;

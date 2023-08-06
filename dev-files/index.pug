@@ -4,13 +4,14 @@ html(lang="ru")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(name="description", content="Матвеев Юрий : фронтенд-разработчик (сайт-портфолио)")
         title Матвеев Юрий : фронтенд-разработчик
-        link(rel='icon' type='image/png' sizes='32x32' href='./favicon-32x32.png')
-        link(rel='icon' type='image/png' sizes='16x16' href='./favicon-16x16.png')
+        link(rel='icon', type='image/png', sizes='32x32', href='./favicon-32x32.png')
+        link(rel='icon', type='image/png', sizes='16x16', href='./favicon-16x16.png')
         link(rel="stylesheet", href="./assets/styles/normalize.css")
         link(rel="stylesheet", href="./assets/styles/style.css")
-        script(type="module", src="./assets/scripts/script.js")
-        script(src='https://kit.fontawesome.com/23dc3993c0.js', crossorigin='anonymous')
+        script(type="module", defer, src="./assets/scripts/script.js")
+        script(src='https://kit.fontawesome.com/23dc3993c0.js', defer, crossorigin='anonymous')
         include includes/EmailJSScript
     body(data-darkmode="true")
         include includes/header

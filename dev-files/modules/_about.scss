@@ -51,6 +51,7 @@
     &__image {
         display: block;
         width: 100%;
+        height: auto;
         border-radius: $mobile-section-border-radius * 0.6;
 
         &_hover {

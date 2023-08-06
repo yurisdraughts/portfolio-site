@@ -10,6 +10,10 @@
         .socials__item-wrapper
             a.button.button_socials.socials__item(
                 class=`socials__${key}`, href=`${value}`,
-                target="_blank"
+                target="_blank", aria-label=`Ссылка на ${
+                    key !== "vk" 
+                        ? key[0].toUpperCase() + key.slice(1) 
+                        : key.toUpperCase()
+                }`
             )
                 i.scale-text_fa.fa-brands.fa-2x(class=`fa-${key}`)

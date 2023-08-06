@@ -3,10 +3,14 @@ section.about#about
         .about__section.about__image-container
             .about__image-wrapper
                 img.about__image(
-                    src="./assets/images/me.jpg", alt="Моя фотография", width="300px"
+                    src="./assets/images/me.jpg", alt="Моя фотография",
+                    width="300",
+                    height="300"
                 )
                 img.about__image.about__image_hover(
-                    src="./assets/images/me-hover.jpg", alt="Моя фотография", width="300px"
+                    src="./assets/images/me-hover.jpg", alt="Моя фотография",
+                    width="300",
+                    height="300"
                 )
         .about__section.about__text
             h2.heading.heading_about #[span.accent Обо мне]
@@ -26,20 +30,28 @@ section.about#about
                 .
                     от freeCodeCamp.
             p.paragraph.paragraph_about Владею английским языком.
-            .paragraph.paragraph_about Умею работать с:
-                ul.fa-ul.paragraph
-                    li #[span.fa-li #[i.fa-brands.fa-html5.accent.accent_list-item]] HTML,
-                    li #[span.fa-li #[i.fa-brands.fa-css3.accent.accent_list-item]] CSS,
-                    li #[span.fa-li #[i.fa-brands.fa-js.accent.accent_list-item]] JavaScript,
-                    li #[span.fa-li #[i.fa-brands.fa-git.accent.accent_list-item]] Git,
-                    li #[span.fa-li #[i.fa-brands.fa-github.accent.accent_list-item]] GitHub,
-                    li #[span.fa-li #[i.fa-solid.fa-file-code.accent.accent_list-item]] Pug,
-                    li #[span.fa-li #[i.fa-brands.fa-sass.accent.accent_list-item]] Sass,
-                    li #[span.fa-li #[i.fa-brands.fa-microsoft.accent.accent_list-item]] Typescript,
-                    li #[span.fa-li #[i.fa-brands.fa-npm.accent.accent_list-item]] npm.
-            .paragraph.paragraph_about Учусь работать с:
-                ul.fa-ul.paragraph
-                    li #[span.fa-li #[i.fa-solid.fa-file-zipper.accent.accent_list-item]] инструментами сборки,
-                    li #[span.fa-li #[i.fa-brands.fa-vuejs.accent.accent_list-item]] Vue.js,
-                    li #[span.fa-li #[i.fa-brands.fa-react.accent.accent_list-item]] React,
-                    li #[span.fa-li #[i.fa-brands.fa-node.accent.accent_list-item]] Node.js
+            .paragraph.paragraph_about
+                | Умею работать с:
+                ol.paragraph.paragraph_about.paragraph_list
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-html5.accent.accent_list-item] HTML,
+                        Pug,
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-css3.accent.accent_list-item] CSS,
+                        #[i.fa-brands.fa-sass.accent.accent_list-item] Sass,
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-js.accent.accent_list-item] JavaScript,
+                        TypeScript,
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-git-alt.accent.accent_list-item] Git,
+                        #[i.fa-brands.fa-github.accent.accent_list-item] GitHub,
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-npm.accent.accent_list-item] npm,
+                        #[i.fa-brands.fa-gulp.accent.accent_list-item] Gulp,
+                        Vite
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-react.accent.accent_list-item] React,
+                        React Router,
+                        Redux Toolkit,
+                    li.paragraph_list-item.
+                        #[i.fa-brands.fa-vuejs.accent.accent_list-item] Vue.

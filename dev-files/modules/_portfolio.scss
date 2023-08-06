@@ -30,6 +30,7 @@
         border-radius: $mobile-section-border-radius * 0.4;
         margin-bottom: math.div($container-padding, 2);
         max-width: 100%;
+        height: auto;
     }
 
     &__paragraph:last-child {
