@@ -3,36 +3,43 @@ section.portfolio#portfolio
         h2.heading.heading_portfolio #[span.accent Портфолио]
         .portfolio__pages-wrapper
             -
+                const images = './assets/images/';
                 const a = (href, text) => `<a class="link link_underline"
                     href="${href}"
                     target="_blank">${text}</a>`;
                 const p = (text) => `<div class="portfolio-page__paragraph
                     paragraph paragraph_portfolio">${text}</div>`;
                 const pages = [
-                    //- {
-                    //-     src: '#',
-                    //-     alt: '',
-                    //-     text: p(`Итоговый проект по курсу технической специализации
-                    //-     в GeekBrains: ${a('#', '')} и ${
-                    //-         a('#', 'его исходный код')
-                    //-     }.`)
-                    //-     + p(`Использовались: Vue и Sass.`),
-                    //-     imgHeight: 0
-                    //- },
-                    //- {
-                    //-     src: './assets/images/rgou.png',
-                    //-     alt: 'Браузерная игра на основе "Игры двадцати квадратов"',
-                    //-     text: p(`Дипломный проект в GeekBrains: ${
-                    //-         a('https://20-squares-app.netlify.app/', 'браузурная игра')
-                    //-     } на основе ${a(
-                    //-         'https://ru.wikipedia.org/wiki/%D0%A6%D0%B0%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%B8%D0%B3%D1%80%D0%B0_%D0%A3%D1%80%D0%B0',
-                    //-         '"Игры двадцати квадратов"'
-                    //-     )} и ${a('https://github.com/yurisdraughts/20-squares-app', 'её исходный код')}.`)
-                    //-     + p(`Использовались: Vite, React, TypeScript, Redux Toolkit, Sass и Netlify.`),
-                    //-     imgHeight: 169
-                    //- },
                     {
-                        src: './assets/images/mealdb.png',
+                        src: images + 'interno.png',
+                        alt: 'Итоговый проект по курсу технической специализации в GeekBrains',
+                        text: p(`${a(
+                            'https://gb-vue-interior-design.netlify.app/', 'Итоговый проект'
+                        )} по курсу технической специализации
+                        в GeekBrains и ${
+                            a('https://github.com/yurisdraughts/gb-vue', 'его исходный код')
+                        }.`)
+                        + p(`Сайт делался на основе ${a(
+                            "https://www.figma.com/file/okdYD45Tj2JpKsNASccUmf/Interior-Design-Webflow-Website-Template-(Community)-(Copy)-(Copy)?node-id=101%3A14&mode=dev",
+                            "макета в Figma"
+                        )}.`)
+                        + p(`Использовались: Vue 2, Vue CLI, Vuex, Vue Router, Sass и Netlify.`),
+                        imgHeight: 160
+                    },
+                    {
+                        src: images + 'rgou.png',
+                        alt: 'Браузерная игра на основе "Игры двадцати квадратов"',
+                        text: p(`Дипломный проект в GeekBrains: ${
+                            a('https://20-squares-app.netlify.app/', 'браузурная игра')
+                        } на основе ${a(
+                            'https://ru.wikipedia.org/wiki/%D0%A6%D0%B0%D1%80%D1%81%D0%BA%D0%B0%D1%8F_%D0%B8%D0%B3%D1%80%D0%B0_%D0%A3%D1%80%D0%B0',
+                            '"Игры двадцати квадратов"'
+                        )} и ${a('https://github.com/yurisdraughts/20-squares-app', 'её исходный код')}.`)
+                        + p(`Использовались: React, Vite, Redux Toolkit, TypeScript, Sass и Netlify.`),
+                        imgHeight: 169
+                    },
+                    {
+                        src: images + 'mealdb.png',
                         alt: 'Приложение с рецептами',
                         text: p(`${a(
                             'https://timely-sunshine-f3f0f4.netlify.app/',
@@ -48,7 +55,7 @@ section.portfolio#portfolio
                         imgHeight: 137
                     },
                     {
-                        src: './assets/images/arcanes.png',
+                        src: images + 'arcanes.png',
                         alt: '"Нулевые" блоки на Тильде',
                         text: p(`"Нулевые" блоки для сайта на Тильде.
                         Страницы с блоками не находятся в открытом доступе,
@@ -63,7 +70,7 @@ section.portfolio#portfolio
                         + p(`Использовались: Sass и Gulp.`)
                     },
                     {
-                        src: './assets/images/contact_manager.png',
+                        src: images + 'contact_manager.png',
                         alt: 'Менеджер контактов',
                         text: p(`${a(
                             "https://yurisdraughts.github.io/contact-manager/",
@@ -72,11 +79,19 @@ section.portfolio#portfolio
                             "https://github.com/yurisdraughts/contact-manager",
                             "исходный код"
                         )}.`)
-                        + p(`Использовались: Sass и Vue.`),
+                        + p(`Также есть ${a(
+                            "https://yurisdraughts.github.io/contact-manager-jquery/",
+                            "версия на jQuery"
+                        )}, исходный код которой доступен ${a(
+                            "https://github.com/yurisdraughts/contact-manager-jquery",
+                            "по ссылке"
+                        )}.`)
+                        + p(`Использовались: Vue и Sass в первой версии;
+                        jQuery, Sass и Gulp во второй.`),
                         imgHeight: 145
                     },
                     {
-                        src: './assets/images/portfolio.png',
+                        src: images + 'portfolio.png',
                         alt: 'Сайт-портфолио',
                         text: p(`${a(
                         "https://github.com/yurisdraughts/portfolio-site",
@@ -87,7 +102,7 @@ section.portfolio#portfolio
                         imgHeight: 110
                     },
                     {
-                        src: './assets/images/worldskills.png',
+                        src: images + 'worldskills.png',
                         alt: 'Сайт, сделанный на курсе "Разработка веб-приложений"',
                         text: p(`${a(
                             "http://yurisdraug.temp.swtest.ru/",

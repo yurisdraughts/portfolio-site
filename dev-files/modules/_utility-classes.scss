@@ -37,7 +37,7 @@
         }
     }
 
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) {
         width: $container-width;
         margin: 0 auto;
     }
